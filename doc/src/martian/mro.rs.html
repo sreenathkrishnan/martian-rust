@@ -1069,6 +1069,7 @@
 <span id="1069">1069</span>
 <span id="1070">1070</span>
 <span id="1071">1071</span>
+<span id="1072">1072</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//!</span>
 <span class="doccomment">//! This module is an attempt at defining traits that would help auto generate</span>
@@ -1118,7 +1119,7 @@
     }
     <span class="kw">fn</span> <span class="ident">min_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">usize</span>;
     <span class="kw">fn</span> <span class="ident">mro_string_no_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">String</span>;
-    <span class="kw">fn</span> <span class="ident">mro_string_with_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="ident">String</span>;
+    <span class="kw">fn</span> <span class="ident">mro_string_with_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">field_width</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="ident">String</span>;
 }
 
 <span class="doccomment">/// A generic display impl for MroDisplay does not work due</span>
@@ -1742,6 +1743,7 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use</span> <span class="ident">indoc</span>::<span class="ident">indoc</span>;
     <span class="kw">use</span> <span class="ident">MartianBlanketType</span>::<span class="kw-2">*</span>;
     <span class="kw">use</span> <span class="ident">MartianPrimaryType</span>::<span class="kw-2">*</span>;
 

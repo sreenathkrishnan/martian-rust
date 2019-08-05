@@ -413,13 +413,13 @@
 <span id="413">413</span>
 <span id="414">414</span>
 </pre><div class="example-wrap"><pre class="rust ">
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">types</span>::{<span class="ident">MartianMakePath</span>, <span class="ident">MartianVoid</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">utils</span>::{<span class="ident">obj_decode</span>, <span class="ident">obj_encode</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">Metadata</span>;
 <span class="kw">use</span> <span class="ident">failure</span>::<span class="ident">Error</span>;
 <span class="kw">use</span> <span class="ident">serde</span>::<span class="ident">de</span>::<span class="ident">DeserializeOwned</span>;
-<span class="kw">use</span> <span class="ident">serde</span>::<span class="ident">Serialize</span>;
+<span class="kw">use</span> <span class="ident">serde</span>::{<span class="ident">Deserialize</span>, <span class="ident">Serialize</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::{<span class="ident">Path</span>, <span class="ident">PathBuf</span>};
-<span class="kw">use</span> <span class="ident">types</span>::{<span class="ident">MartianMakePath</span>, <span class="ident">MartianVoid</span>};
-<span class="kw">use</span> <span class="ident">utils</span>::{<span class="ident">obj_decode</span>, <span class="ident">obj_encode</span>};
-<span class="kw">use</span> <span class="ident">Metadata</span>;
 
 <span class="doccomment">/// Memory/ thread request can be negative in matrian</span>
 <span class="doccomment">/// http://martian-lang.org/advanced-features/#resource-consumption</span>
