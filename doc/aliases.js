@@ -12,6 +12,7 @@ ALIASES["libc"] = {};
 ALIASES["log"] = {};
 ALIASES["martian"] = {};
 ALIASES["martian_derive"] = {};
+ALIASES["martian_lab"] = {};
 ALIASES["num_integer"] = {};
 ALIASES["num_traits"] = {};
 ALIASES["proc_macro2"] = {};

@@ -1522,7 +1522,7 @@
 
 <span class="doccomment">/// The list of filetypes we list at the top of the mro</span>
 <span class="doccomment">/// A simple wrapper around a HashSet of all file extensions.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">PartialEq</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">PartialEq</span>, <span class="ident">Default</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">FiletypeHeader</span>(<span class="ident">HashSet</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>);
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">MroField</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">FiletypeHeader</span> {

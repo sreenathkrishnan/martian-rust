@@ -412,7 +412,9 @@
 <span id="412">412</span>
 <span id="413">413</span>
 <span id="414">414</span>
+<span id="415">415</span>
 </pre><div class="example-wrap"><pre class="rust ">
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">mro</span>::{<span class="ident">MartianStruct</span>, <span class="ident">MroMaker</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">types</span>::{<span class="ident">MartianMakePath</span>, <span class="ident">MartianVoid</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">utils</span>::{<span class="ident">obj_decode</span>, <span class="ident">obj_encode</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">Metadata</span>;
@@ -591,9 +593,9 @@
     <span class="ident">WithSplit</span>,
 }
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">MartianMain</span> {
-    <span class="kw">type</span> <span class="ident">StageInputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span>;
-    <span class="kw">type</span> <span class="ident">StageOutputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span>;
+<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">MartianMain</span>: <span class="ident">MroMaker</span> {
+    <span class="kw">type</span> <span class="ident">StageInputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span> <span class="op">+</span> <span class="ident">MartianStruct</span>;
+    <span class="kw">type</span> <span class="ident">StageOutputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span> <span class="op">+</span> <span class="ident">MartianStruct</span>;
 
     <span class="kw">fn</span> <span class="ident">main</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -602,11 +604,11 @@
     ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">StageOutputs</span>, <span class="ident">Error</span><span class="op">&gt;</span>;
 }
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">MartianStage</span> {
-    <span class="kw">type</span> <span class="ident">StageInputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span>;
-    <span class="kw">type</span> <span class="ident">StageOutputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span>;
-    <span class="kw">type</span> <span class="ident">ChunkInputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span>;
-    <span class="kw">type</span> <span class="ident">ChunkOutputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span>;
+<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">MartianStage</span>: <span class="ident">MroMaker</span> {
+    <span class="kw">type</span> <span class="ident">StageInputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span> <span class="op">+</span> <span class="ident">MartianStruct</span>;
+    <span class="kw">type</span> <span class="ident">StageOutputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span> <span class="op">+</span> <span class="ident">MartianStruct</span>;
+    <span class="kw">type</span> <span class="ident">ChunkInputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span> <span class="op">+</span> <span class="ident">MartianStruct</span>;
+    <span class="kw">type</span> <span class="ident">ChunkOutputs</span>: <span class="ident">Serialize</span> <span class="op">+</span> <span class="ident">DeserializeOwned</span> <span class="op">+</span> <span class="ident">MartianStruct</span>;
 
     <span class="kw">fn</span> <span class="ident">split</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
